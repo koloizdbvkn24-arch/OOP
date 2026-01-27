@@ -1,0 +1,55 @@
+using Interfaces;
+
+
+public interface IOrderValidator
+{
+    bool IsValid(Order order);
+}
+
+public interface IOrderRepository
+{
+    void Save(Order order);
+    Order GetById(int id);
+}
+
+public interface IEmailService
+{
+    void SendOrderConfirmation(Order order);
+}
+
+
+// Простий валідатор
+public class SimpleOrderValidator : IOrderValidator
+{
+    public bool IsValid(Order order)
+    {
+        return order.TotalAmount > 0;
+    }
+}
+
+// Репозиторій в пам'яті
+public class InMemoryOrderRepository : IOrderRepository
+{
+    private readonly Dictionary<int, Order> _orders = new();
+
+    public void Save(Order order)
+    {
+        _orders[order.Id] = order;
+        Console.WriteLine($"Order {order.Id} saved to in-memory database.");
+    }
+
+    public Order GetById(int id)
+    {
+        _orders.TryGetValue(id, out var order);
+        return order;
+    }
+}
+
+// "Відправка" email через консоль
+public class ConsoleEmailService : IEmailService
+{
+    public void SendOrderConfirmation(Order order)
+    {
+        Console.WriteLine($"Email sent to {order.CustomerName} confirming order {order.Id}.");
+    }
+}
