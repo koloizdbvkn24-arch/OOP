@@ -1,0 +1,8 @@
+﻿[File] 23:23:37 | Main: Processed 'Тест 2' with 'Encrypt(Base64)'
+[File] 23:23:37 | Observer: DataProcessed via 'Encrypt(Base64)' -> 0KLQtdGB0YIgMg==
+[File] 23:23:37 | Main: Processed 'Тест 1' with 'Compress(RemoveSpaces)'
+[File] 23:23:37 | Observer: DataProcessed via 'Compress(RemoveSpaces)' -> Тест1
+[File] 23:25:01 | Main: Processed 'привіт світ' with 'Encrypt(Base64)'
+[File] 23:25:01 | Observer: DataProcessed via 'Encrypt(Base64)' -> 0L/RgNC40LLRltGCINGB0LLRltGC
+[File] 23:25:01 | Main: Processed 'привіт світ' with 'Compress(RemoveSpaces)'
+[File] 23:25:01 | Observer: DataProcessed via 'Compress(RemoveSpaces)' -> привітсвіт
